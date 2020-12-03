@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="Summation.fs" />
+    <Compile Include="PolicyParser.fs" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="fparsec" Version="1.1.1" />
+  </ItemGroup>
+</Project>
