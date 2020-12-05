@@ -14,4 +14,8 @@
     <ProjectReference Include="..\lib\lib.fsproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="datafileDay2.txt" CopyToOutputDirectory="PreserveNewest" />
+  </ItemGroup>
+
 </Project>

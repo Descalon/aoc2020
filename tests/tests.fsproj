@@ -10,6 +10,8 @@
   <ItemGroup>
     <Compile Include="SummationTests.fs" />
     <Compile Include="PolicyTests.fs" />
+    <Compile Include="TobogganTests.fs" />
+    <Compile Include="PassportTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 

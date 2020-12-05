@@ -5,6 +5,8 @@
   <ItemGroup>
     <Compile Include="Summation.fs" />
     <Compile Include="PolicyParser.fs" />
+    <Compile Include="Toboggan.fs" />
+    <Compile Include="PassportProcessing.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="fparsec" Version="1.1.1" />
