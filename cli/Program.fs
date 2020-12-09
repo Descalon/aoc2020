@@ -51,33 +51,47 @@ let day3' () =
     |> Toboggan.processToboggan' [(1,1); (3,1); (5,1); (7,1); (1,2)]
     |> printfn "Result of day 3 part 2 = %i"
 
-
-let dataday4 : string list list = 
-    let s = seq {
-        use sr = new StreamReader("datafileDay4.txt")
-        while not sr.EndOfStream do
-            yield sr.ReadLine()
-    }
-
-    let rec split all passports = function
-    | [] -> all @ [passports]
-    | (x::xs) ->
-        if System.String.IsNullOrWhiteSpace(x) then
-            let all' = all @ [passports]
-            split all' [] xs
-        else 
-            let passports' = passports @ [x.Trim()]
-            split all passports' xs
-    
-    let n = split [] [] (s |> Seq.toList)
-    printfn "%O" n
-    n
-
 let day4 () =
-    dataday4
+    Data.day4
     |> List.map PassportProcessing.checkPassport
     |> List.sumBy (fun x -> if x then 1 else 0)
     |> printfn "Result of day 4 = %i"
+
+let selectId (s: BPScanner.SeatInfo) = s.Id
+
+let day5() =
+    Data.day5
+    |> Seq.map BPScanner.calculateSeat
+    |> Seq.maxBy (fun (x: BPScanner.SeatInfo) -> x.Id)
+    |> selectId
+    |> printfn "Result of day 5 = %i" 
+
+let flip fn a b = fn b a
+
+let day5'() =
+    (Seq.map (BPScanner.calculateSeat >> selectId) Data.day5)
+    |> (flip Seq.except) [0 .. 1023]
+    |> Seq.toList
+    |> List.iter (printfn "%i")
+
+let day6() =
+    Data.day6
+    |> List.map (Questionaire.union)
+    |> List.sumBy (Set.count)
+    |> printfn "Result of day 6 = %i"
+
+let day6'() =
+    Data.day6
+    |> List.map (Questionaire.intersection)
+    |> List.sumBy (Set.count)
+    |> printfn "Result of day 6 part 2 = %i"
+
+let day8() =
+    ["nop +0";"acc +1";"jmp +4";"acc +3";"jmp -3";"acc -99";"acc +1";"jmp -4";"acc +6";]
+    |> BootCode.parseBootCode
+    |> BootCode.toProgram
+    |> BootCode.checkRepeatingProgram
+    |> printfn "Result of day 8 = %i"
 
 [<EntryPoint>]
 let main argv =
@@ -96,5 +110,13 @@ let main argv =
             day3'() 
         | "day4" ->
             day4()
+        | "day5" ->
+            day5()
+            day5'()
+        | "day6" ->
+            day6()
+            day6'()
+        | "day8" ->
+            day8()
         | _ -> raise (ArgumentException("No day recognised"))
     0 

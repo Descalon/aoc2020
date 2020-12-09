@@ -7,6 +7,10 @@
     <Compile Include="PolicyParser.fs" />
     <Compile Include="Toboggan.fs" />
     <Compile Include="PassportProcessing.fs" />
+    <Compile Include="BPScanner.fs" />
+    <Compile Include="Questionaire.fs" />
+    <Compile Include="Luggage.fs" />
+    <Compile Include="BootCode.fs" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="fparsec" Version="1.1.1" />
