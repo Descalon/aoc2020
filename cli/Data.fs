@@ -26,3 +26,5 @@ let day5 = readFile "datafileDay5.txt"
 let day6: string list list  = readFile "datafileDay6.txt" |> split [] []
 
 let day7 = readFile "datafileDay7.txt"
+
+let day8 = readFile "datafileDay8.txt"

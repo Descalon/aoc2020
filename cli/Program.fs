@@ -87,7 +87,7 @@ let day6'() =
     |> printfn "Result of day 6 part 2 = %i"
 
 let day8() =
-    ["nop +0";"acc +1";"jmp +4";"acc +3";"jmp -3";"acc -99";"acc +1";"jmp -4";"acc +6";]
+    Data.day8
     |> BootCode.parseBootCode
     |> BootCode.toProgram
     |> BootCode.checkRepeatingProgram
