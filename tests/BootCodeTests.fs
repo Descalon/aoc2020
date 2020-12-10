@@ -25,11 +25,3 @@ let ``Parsing should preserve sign`` (input, expected) =
     match (parseSingleOp input) with
     | Acc x -> assertInt expected x
     | _ -> Assert.True false
-
-[<Fact>]
-let ``Testing sample program`` () =
-    sampleInput
-    |> parseBootCode
-    |> toProgram
-    |> checkRepeatingProgram
-    |> assertInt 5

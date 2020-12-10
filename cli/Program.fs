@@ -93,6 +93,19 @@ let day8() =
     |> BootCode.checkRepeatingProgram
     |> printfn "Result of day 8 = %i"
 
+let day9() =
+    Data.day9
+    |> XmasDecoder.processData
+    |> Result.bind (printfn "Result of day 9 = %i" >> Ok) |> ignore
+
+let day9'() =
+    let r = Data.day9 |> XmasDecoder.exploit 15353384L
+
+    let x = match r with 
+            | Error x    -> printfn "Failed with error: '%s'" x
+            | Ok x       -> printfn "Result of day 9 part 2= %i" x
+    x |> ignore
+
 [<EntryPoint>]
 let main argv =
     if Array.isEmpty argv then
@@ -118,5 +131,8 @@ let main argv =
             day6'()
         | "day8" ->
             day8()
+        | "day9" ->
+            day9()
+            day9'()
         | _ -> raise (ArgumentException("No day recognised"))
     0 

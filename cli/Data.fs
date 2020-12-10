@@ -28,3 +28,8 @@ let day6: string list list  = readFile "datafileDay6.txt" |> split [] []
 let day7 = readFile "datafileDay7.txt"
 
 let day8 = readFile "datafileDay8.txt"
+
+let day9 = 
+    System.IO.File.ReadAllLines("datafileDay9.txt")
+    |> Array.map (int64)
+    |> List.ofArray

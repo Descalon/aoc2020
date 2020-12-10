@@ -15,6 +15,7 @@
     <Compile Include="ScannerTests.fs" />
     <Compile Include="QuestionaireTests.fs" />
     <Compile Include="BootCodeTests.fs" />
+    <Compile Include="XmasDecoderTests.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
